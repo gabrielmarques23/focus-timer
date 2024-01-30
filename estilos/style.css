@@ -30,6 +30,10 @@ button{
     cursor: pointer;
 }
 
+button img{
+    width: clamp(3rem, 2rem + 15vw, 6rem);
+}
+
 .hide{
     display: none;
 }
@@ -41,11 +45,16 @@ button{
    align-items: center;
    justify-content: center;
 
-   padding: 1rem;
    border-radius: 9999px;
+   padding: 1rem;
+
+   gap: 3.2rem;
+
+   width: clamp(20rem, 10rem + 20vw, 25.5rem);
+   height: clamp(5rem, 5rem + 10vw, 12rem);;
 }
 
 #timer {
-    font-size: 8.8rem;
+    font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
     display: flex;
 }
