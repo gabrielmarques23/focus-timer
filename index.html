@@ -2,11 +2,15 @@
 <html lang="pt-br">
 
 <head>
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus Timer</title>
 
-    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 
     <script src="js/script.js"></script>
 </head>
@@ -15,22 +19,25 @@
 
     <main>
         <div id="timer">
-            <span id="minutes">25</span>
+            <span class="minutes">25</span>
             <span>:</span>
-            <span id="seconds">00</span>
+            <span class="seconds">00</span>
         </div>
 
         <div id="controls">
-            <button id="play"><img src="assets/play-circle.png" alt="Play"></button>
-            <button id="pause"><img src="assets/pause-circle.png" alt="Pause"></button>
-            <button id="stop"><img src="assets/stop-circle.png" alt="Stop"></button>
-            <button id="set"><img src="assets/timer-circle.png" alt="Set"></button>
+            <button class="play"><img src="assets/play-circle.png" alt="Play"></button>
+
+            <button class="pause hide"><img src="assets/pause-circle.png" alt="Pause"></button>
+
+            <button class="stop hide"><img src="assets/stop-circleW.png" alt="Stop"></button>
+
+            <button class="set"><img src="assets/timer-circleW.png" alt="Set hide"></button>
         </div>
     </main>
 
     <footer>
-        <button id="soundOn"><img src="assets/sound-on.png" alt=""></button>
-        <button id="soundOff"><img src="assets/sound-off.png" alt=""></button>
+        <button class="soundOn"><img src="assets/sound-onW.png" alt=""></button>
+        <button class="soundOff hide"><img src="assets/sound-offW.png" alt=""></button>
     </footer>
 
 </body>
