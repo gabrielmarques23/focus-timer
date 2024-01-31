@@ -25,19 +25,21 @@
         </div>
 
         <div id="controls">
-            <button class="play" onclick="clickPlay()"><img src="assets/play-circle.png" alt="Play"></button>
+            <button class="play" onclick="clickButtonPlay()"><img src="assets/play-circle.png" alt="Play"></button>
 
-            <button class="pause hide" onclick="clickPause()"><img src="assets/pause-circle.png" alt="Pause"></button>
+            <button class="pause hide" onclick="clickButtonPause()"><img src="assets/pause-circle.png"
+                    alt="Pause"></button>
 
-            <button class="stop hide"><img src="assets/stop-circleW.png" alt="Stop"></button>
+            <button class="stop hide" onclick="clickButtonStop()"><img src="assets/stop-circleW.png"
+                    alt="Stop"></button>
 
             <button class="set"><img src="assets/timer-circleW.png" alt="Set hide"></button>
         </div>
     </main>
 
     <footer>
-        <button class="soundOn"><img src="assets/sound-onW.png" alt=""></button>
-        <button class="soundOff hide"><img src="assets/sound-offW.png" alt=""></button>
+        <button class="soundOn" onclick="clickButtonSoundOn()"><img src="assets/sound-onW.png" alt=""></button>
+        <button class="soundOff hide" onclick="clickButtonSoundOff()"><img src="assets/sound-offW.png" alt=""></button>
     </footer>
 
     <script src="js/script.js"></script>
