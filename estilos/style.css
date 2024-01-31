@@ -4,7 +4,7 @@
     --bg-color: #121214;
     --base-color: 194;
     --bg-primary-transparent: hsla(var(--base-color), 100%, 63%, 0.13);
-    --primary-color:hsl(var(--base-color), 100%, 63%);
+    --primary-color: hsl(var(--base-color), 100%, 63%);
     --txt-color: #ffffff;
 
     font-size: 62.5%;
@@ -21,40 +21,56 @@ body {
     color: var(--txt-color);
 
     font-family: 'Roboto', sans-serif, 'Courier New';
+
+    display: grid;
+    min-height: 100vh;
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
 
     cursor: pointer;
 }
-
-button img{
+button img {
     width: clamp(3rem, 2rem + 15vw, 6rem);
 }
 
-.hide{
-    display: none;
+main {
+    display: grid;
+    justify-self: center;
+    align-self: end;
 }
 
-
-#controls{
-   background: var(--bg-primary-transparent); 
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
-   border-radius: 9999px;
-   padding: 1rem;
-
-   gap: 3.2rem;
-
-   width: clamp(20rem, 10rem + 20vw, 25.5rem);
-   height: clamp(5rem, 5rem + 10vw, 12rem);;
-}
-
-#timer {
+div#timer {
     font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
     display: flex;
+
+    margin-bottom: 1.5rem;
+}
+div#controls {
+    background: var(--bg-primary-transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 9999px;
+    padding: 1rem;
+    
+    gap: 3.2rem;
+    
+    width: clamp(20rem, 10rem + 20vw, 25.5rem);
+    height: clamp(5rem, 5rem + 10vw, 12rem);
+    ;
+}
+
+
+footer {
+    justify-self: end;
+    align-self: end;
+
+    padding: 0.7rem;
+}
+button.hide {
+    display: none;
 }

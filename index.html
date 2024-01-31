@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 
-    <script src="js/script.js"></script>
+
 </head>
 
 <body>
@@ -25,9 +25,9 @@
         </div>
 
         <div id="controls">
-            <button class="play"><img src="assets/play-circle.png" alt="Play"></button>
+            <button class="play" onclick="clickPlay()"><img src="assets/play-circle.png" alt="Play"></button>
 
-            <button class="pause hide"><img src="assets/pause-circle.png" alt="Pause"></button>
+            <button class="pause hide" onclick="clickPause()"><img src="assets/pause-circle.png" alt="Pause"></button>
 
             <button class="stop hide"><img src="assets/stop-circleW.png" alt="Stop"></button>
 
@@ -40,6 +40,7 @@
         <button class="soundOff hide"><img src="assets/sound-offW.png" alt=""></button>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 
 </html>
