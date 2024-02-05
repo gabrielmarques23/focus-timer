@@ -5,10 +5,11 @@ const buttonSet = document.querySelector('button.set');
 const minutesDisplay = document.querySelector('span.minutes');
 const secondsDisplay = document.querySelector('span.seconds');
 
-let minutes
-
 const buttonSoundOn = document.querySelector('button.soundOn');
 const buttonSoundOff = document.querySelector('button.soundOff');
+
+let minutes = Number(minutesDisplay.textContent);
+let timerTimeOut
 
 function resetControls() {
     buttonPlay.classList.remove('hide')
@@ -16,32 +17,32 @@ function resetControls() {
     buttonSet.classList.remove('hide')
     buttonStop.classList.add('hide')
 }
-
-function updateTimesDisplay(minutes, seconds) {
+function resetTimer() {
+    updateTimerDisplay(minutes, 0)
+    clearTimeout(timerTimeOut)
+}
+function updateTimerDisplay(minutes, seconds) {
     minutesDisplay.textContent = String(minutes).padStart(2, "0")
     secondsDisplay.textContent = String(seconds).padStart(2, "0")
-
 }
-
 function countDown() {
-    setTimeout(function () {
+    timerTimeOut = setTimeout(function () {
         let seconds = Number(secondsDisplay.textContent)
         let minutes = Number(minutesDisplay.textContent)
 
-        updateTimesDisplay(minutes, 0)
+        updateTimerDisplay(minutes, 0)
 
         if (minutes <= 0) {
             resetControls()
             return
         }
 
-
         if (seconds <= 0) {
-            seconds = 60
+            seconds = 2
             --minutes
         }
 
-        updateTimesDisplay(minutes, String(seconds - 1))
+        updateTimerDisplay(minutes, String(seconds - 1))
 
         countDown()
     }, 1000)
@@ -59,13 +60,20 @@ function clickButtonPlay() {
 function clickButtonPause() {
     buttonPause.classList.add('hide')
     buttonPlay.classList.remove('hide')
+    clearTimeout(timerTimeOut)
 }
 function clickButtonStop() {
     resetControls()
+    resetTimer()
 }
 function clickButtonSet() {
-    minutes = Number(window.prompt(`Quantos minutos?`))
-    updateTimesDisplay(minutes, 0)
+    let newMinutes = prompt(`Quantos minutos?`)
+    if (!newMinutes) {
+        resetTimer()
+        return
+    }
+    minutes = newMinutes
+    updateTimerDisplay(minutes, 0)
 }
 
 function clickButtonSoundOn() {
