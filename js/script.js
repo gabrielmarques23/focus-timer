@@ -37,6 +37,7 @@ function countDown() {
 
         if (isFinished) {
             resetControls()
+            sound().timerSong.play()
             return
         }
 
@@ -44,21 +45,34 @@ function countDown() {
             seconds = 60
             --minutes
         }
-
         updateTimerDisplay(minutes, String(seconds - 1))
-
         countDown()
     }, 1000)
+}
+
+function sound() {
+    const timerSong = new Audio('./assets/simple-2.mp3')
+    const soundClickButton = new Audio('./assets/click-button.mp3')
+    const soundStopButton = new Audio('./assets/click-stop.mp3')
+    return {
+        timerSong,
+        soundClickButton,
+        soundStopButton,
+    }
+}
+function bgSoundOff() {
+    buttonSoundOn.classList.remove('hide')
+    buttonSoundOff.classList.add('hide')
+    sound().bgSound.pause(); 
 }
 
 function clickButtonPlay() {
     buttonPlay.classList.add('hide')
     buttonPause.classList.remove('hide')
-
     buttonStop.classList.remove('hide')
     buttonSet.classList.add('hide')
-
     countDown()
+    sound().soundClickButton.play()
 }
 function clickButtonPause() {
     buttonPause.classList.add('hide')
@@ -66,8 +80,11 @@ function clickButtonPause() {
     clearTimeout(timerTimeOut)
 }
 function clickButtonStop() {
+    sound().soundStopButton.play()
     resetControls()
     resetTimer()
+    sound().soundStopButton.play()
+
 }
 function clickButtonSet() {
     let newMinutes = prompt(`Quantos minutos?`)
