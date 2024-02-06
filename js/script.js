@@ -96,7 +96,7 @@ function clickButtonStop() {
 
 }
 function clickButtonSet() {
-    let newMinutes = prompt(`Quantos minutos?`)
+    let newMinutes = Number(prompt(`Quantos minutos?`))
     if (!newMinutes) {
         resetTimer()
         return
