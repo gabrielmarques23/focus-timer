@@ -10,6 +10,7 @@ const buttonSoundOff = document.querySelector('button.soundOff');
 
 let minutes = Number(minutesDisplay.textContent);
 let timerTimeOut
+let bgSound;
 
 function resetControls() {
     buttonPlay.classList.remove('hide')
@@ -51,19 +52,27 @@ function countDown() {
 }
 
 function sound() {
-    const timerSong = new Audio('./assets/simple-2.mp3')
-    const soundClickButton = new Audio('./assets/click-button.mp3')
-    const soundStopButton = new Audio('./assets/click-stop.mp3')
+    const timerSong = new Audio('./assets/simple-2.mp3');
+    const soundClickButton = new Audio('./assets/click-button.mp3');
+    const soundStopButton = new Audio('./assets/click-stop.mp3');
+
     return {
         timerSong,
         soundClickButton,
         soundStopButton,
-    }
-}
-function bgSoundOff() {
-    buttonSoundOn.classList.remove('hide')
-    buttonSoundOff.classList.add('hide')
-    sound().bgSound.pause(); 
+        playBgSound: function() {
+            if (!bgSound) {
+                bgSound = new Audio('./assets/bg-sound.mp3');
+                bgSound.loop = true;
+            }
+            bgSound.play();
+        },
+        pauseBgSound: function() {
+            if (bgSound) {
+                bgSound.pause();
+            }
+        }
+    };
 }
 
 function clickButtonPlay() {
@@ -99,8 +108,10 @@ function clickButtonSet() {
 function clickButtonSoundOn() {
     buttonSoundOn.classList.add('hide')
     buttonSoundOff.classList.remove('hide')
+    sound().playBgSound()
 }
 function clickButtonSoundOff() {
     buttonSoundOn.classList.remove('hide')
     buttonSoundOff.classList.add('hide')
+    sound().pauseBgSound()
 }
